@@ -1,0 +1,57 @@
+It's time to write your first script. A script is a file which contains commands and you will execute it to run them. It's very useful to combine multiple commands. In this first script, you will only have one command.
+
+In a my_midLS file, write a command line that will list all files and directories in your current directory (except for hidden files or any file that starts by a dot - yes, that includes double-dots), by order of time modified. Make sure directories' names are followed by a slash character.
+
+$>cat my_midLS
+#!/bin/sh
+
+#ls -OPTIONSSS :-)
+$>
+Example of output:
+
+$>chmod 755 my_midLS
+$>mkdir dir00 dir01 dir02
+$>touch file00 file01
+$>./my_midLS
+file01  file00  dir02/  dir01/  dir00/  my_midLS
+$>
+Tips
+What has not been asked for should not be done!
+man ls will be your friend!
+You have to file the right combination of option to make the command ls to add the / at the end of each directories and sort the content by time ;-)
+
+Git doesn't store empty directories, so you will need an additional step: for each directory, create a file without any content called: .gitkeep
+
+Example
+
+$>pwd
+/home/docode/quest00/ex04
+$>ls -lRa
+total 8
+drwxr-xr-x  8 login  group  256 May  25 10:10 .
+drwxr-xr-x  9 login  group  288 May  25 10:10 ..
+drwxr-xr-x  3 login  group   96 May  25 10:10 dir00
+drwxr-xr-x  3 login  group   96 May  25 10:10 dir01
+drwxr-xr-x  3 login  group   96 May  25 10:10 dir02
+-rw-r--r--  1 login  group    0 May  25 10:10 file00
+-rw-r--r--  1 login  group    0 May  25 10:10 file01
+-rwxr-xr-x  1 login  group    9 May  25 10:10 my_midLS
+
+./dir00:
+total 0
+drwxr-xr-x  3 login  group   96 May  25 10:10 .
+drwxr-xr-x  8 login  group  256 May  25 10:10 ..
+-rw-r--r--  1 login  group    0 May  25 10:10 .gitkeep
+
+./dir01:
+total 0
+drwxr-xr-x  3 login  group   96 May  25 10:10 .
+drwxr-xr-x  8 login  group  256 May  25 10:10 ..
+-rw-r--r--  1 login  group    0 May  25 10:10 .gitkeep
+
+./dir02:
+total 0
+drwxr-xr-x  3 login  group   96 May  25 10:10 .
+drwxr-xr-x  8 login  group  256 May  25 10:10 ..
+-rw-r--r--  1 login  group    0 May  25 10:10 .gitkeep
+$>
