@@ -1,23 +1,26 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+ 
+ 
 
-int* my_range(int min, int max)
-{  
-    int   *integer; 
-        if (min >= max) 
-        return    NULL;
-       integer = (int*)malloc(sizeof(integer)  * (max - min));
-
-       for (int i = 0; min < max; i++) {
-           integer[i] = min;
-           min++;
-          }  
-   return integer;
+int* my_range(int param_1, int param_2)
+{
+    int *a = (int*)malloc(sizeof(a)  * (param_2 - param_1));
+    if(param_1 >= param_2){
+        return NULL;
+    }
+    
+    for(int i = 0; param_1 < param_2; i++) {
+        a[i] = param_1;
+        param_1++;
+    }
+    return a;
 }
 
 // int main() {
-//     int min1 = 6;
-// 	int max1 = 11;
-// 	 my_range(min1, max1);
+//     int min[] = {6, 7, 8};
+//     int max[] = {9, 10, 11};
+//      printf("%d", my_range(*min, *max));
 //     return 0;
 // }
