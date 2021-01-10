@@ -1,0 +1,18 @@
+<html>
+    <div id="my_box_realtime" style= "background-color: red; position: absolute; right: 70; bottom: 70; min-width: 100px; min-height: 100px"></div>
+    <script type="text/javascript">
+      var my_box = document.getElementById("my_box_realtime").style;
+      var counter = 70;
+      function move(){
+            if (counter == 0){
+                clearInterval (interval);
+            }
+            else{
+                counter --;
+                my_box.right = counter +'px';
+                my_box.bottom = counter +'px';
+            }
+      }
+      var interval = setInterval (move, 500);
+    </script>
+</html>
