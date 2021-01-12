@@ -1,0 +1,209 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Пример веб-страницы</title>
+ 
+ </head>
+ <body>
+    <main class="container">
+        <div class="row">
+            <div class="col-8 left_block">
+                <div class="row menu justify-content-center">
+                    <nav class="navbar navbar-expand-sm ">
+                        <!-- Links -->
+                        <ul class="navbar-nav"><li class="nav-item">
+                                <a class="nav-link" href="https://gameprogrammingpatterns.com/event-queue.html">← Previous Chapter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://gameprogrammingpatterns.com/">About The Book</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://gameprogrammingpatterns.com/contents.html">Contents</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://gameprogrammingpatterns.com/acknowledgements.html">Next Chapter →</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+                
+            <div class="row headText">
+                <div class="col head-block">
+                    <h1 class="header_text">Service Locator</h1> 
+                    <hr> 
+                    <div class="row alinks d-flex flex-row ml-20">
+                        <div class="col"><a class="a1-link text-left" href="https://gameprogrammingpatterns.com/">Game Programming Patterns</a> / <a class="a2-link text-left" href="https://gameprogrammingpatterns.com/decoupling-patterns.html">Decoupling Patterns</a></div>
+                    </div>
+                </div>    
+            </div>
+
+            <div class="row intent">
+                <div class="col lblock">
+                    <div class="intText">
+                        <div class="melblock position-absolute">
+                            
+                        </div>
+                        <h2 class="h2intent"><a href="https://gameprogrammingpatterns.com/service-locator.html#intent">Intent</a></h2>
+                        <p class="pclassText">Provide a global point of access to a service without coupling users to the concrete class that implements it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row motivation">
+                <div class="col mblock">
+                    <div class="motText">
+                        <div class="melblock position-absolute">
+                            
+                        </div>
+                        <h2 class="h2motiv"><a href="https://gameprogrammingpatterns.com/event-queue.html#motivation">Motivation</a></h2>
+                        <p class="pclassText">Some objects or systems in a game tend to get around, visiting almost every corner of the codebase. It’s hard to find a part of the game that won’t need a memory allocator, logging, or random numbers at some point. Systems like those can be thought of as services that need to be available to the entire game.<br><br>
+
+                            For our example, we’ll consider audio. It doesn’t have quite the reach of something lower-level like a memory allocator, but it still touches a bunch of game systems. A falling rock hits the ground with a crash (physics). A sniper NPC fires his rifle and a shot rings out (AI). The user selects a menu item with a beep of confirmation (user interface).
+
+                            Each of these places will need to be able to call into the audio system with something like one of these:</p>
+                    
+                    
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <p><span class="spanblock">// Use a static class?</span>
+                            <br>
+                            AudioSystem::playSound(VERY_LOUD_BANG);
+                            <br><br>
+                            <span class="spanblock">// Or maybe a singleton?</span>
+                            <br>
+                            AudioSystem::instance()->playSound(VERY_LOUD_BANG);
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="row intent">
+                    <div class="col intent">
+                            <div class="intText">
+                                <div class="melblock position-absolute">
+                                    
+                                </div>
+                                <h2 class="h2intent"><a href="https://gameprogrammingpatterns.com/service-locator.html#sample-code">Sample Code</a></h2>
+                                <p class="pclassText">Getting back to our audio system problem, let’s address it by exposing the system to the rest of the codebase through a service locator.</p>
+                            </div>
+                    </div>
+                </div>
+                <div class="row intent">    
+                    <div class="col intent">
+                            <div class="intText">
+                                <div class="melblock position-absolute">
+                                    
+                                </div>
+                                <h2 class="h2intent"><a href="https://gameprogrammingpatterns.com/service-locator.html#the-service">The service</a></h2>
+                                <p class="pclassText">We’ll start off with the audio API. This is the interface that our service will be exposing:</p>
+                            </div>
+                    </div>
+                </div>
+        </div>
+            <div class="col-4 right_block">
+            
+            </div>
+
+    </div>
+    </main>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+ </body>
+</html>
+
+body {
+ background-color: #e6e2dc;
+}
+
+.left_block {
+    background-color: #FFF;
+}
+
+.right_block {
+    background-color: #fbfaf8;
+}
+
+.menu {
+    background-color: #f0f7fa;
+}
+
+.navbar-nav {
+    font-size: 14px;
+   
+}
+
+
+.header_text {
+    margin-top: 70px;
+    font-size: 45px;
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-bottom: -10px;
+    font-family: "Source Sans Pro";
+}
+
+.alinks {
+    margin-top: -10px;
+    font-size: 14px;
+}
+
+.a1-link {
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.melblock {
+    width: 10px;
+    height: 40px;
+    background-color: #f0f7fa;
+    margin-left: -13px;
+}
+
+.intent {
+    margin-top: 30px;
+}
+
+
+.h2intent, .h2motiv {
+    display: inline;
+    color: #1481b8;
+    font-family: "Source Sans Pro";
+    border-bottom: solid 1px #eeeeee;
+    margin-left: 30px;
+    margin-right: 10px;
+
+}
+
+.pclassText {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.card {
+    margin-left: 30px;
+    margin-right: 10px;
+    background-color: #f8fbfc;
+    border: solid 1px #f1f6f9;
+    font-size: 14px;
+}
+
+.spanblock {
+    color: #999;
+}
+
+@media (min-width: 576px) { ... }
+
+
+@media (min-width: 768px) { ... }
