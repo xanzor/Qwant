@@ -1,0 +1,54 @@
+body {
+    text-align: center; 
+}
+
+.container {
+    width: 100%;
+    max-width:100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+}
+
+.header {
+    background-color: #00B7EB;
+}
+
+.hero {
+    background-color: #FF0000;
+}
+
+.blocks {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    
+    .blocks {
+        flex-direction: column;
+    }
+}
+
+.content {
+     background-color: #00FF00;
+     flex : 1;
+     
+}
+
+.sidebar {
+    background-color: #800080;
+    flex: 1;
+}
+
+.footer {
+     background-color: #444444;
+} 
+
+div {
+    margin: 2px;
+}
