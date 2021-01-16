@@ -1,0 +1,41 @@
+<html style='background-color: black'>
+     <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >khushaev_a</div>
+
+    <script type="text/javascript">
+
+        let intViewportWidth = window.innerWidth;
+        let intViewportHeight = window.innerHeight;
+        let x = 0;
+        let y = 0;
+        element = document.getElementById("my_bouncing_box");
+        x_state = true;
+        y_state = true;
+        setInterval(() => {
+            if (x_state == true) {
+                x++;
+            }
+                else if(x_state == false) {
+                    x--;
+                }
+            if(y_state == true) {
+                y++;
+            }    
+                else if(y_state == false) {
+                    y--;
+                }
+
+                if(x >= intViewportWidth -100 || x < 0) {
+                    x_state = !x_state;
+                }
+
+                if(y >= intViewportHeight -100 || y < 0) {
+                    y_state = !y_state;
+                }
+
+                element.style.top = y;
+                element.style.left = x;
+        }, 300);
+
+     
+    </script>
+</html>
