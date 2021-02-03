@@ -1,0 +1,3 @@
+Create a file my_first_script_with_args.rb.
+
+It will print any argument received to the script
